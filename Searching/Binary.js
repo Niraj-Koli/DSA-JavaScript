@@ -5,17 +5,19 @@
 const buddies = ["Kaizer", "Vivy", "Dante", "Nero", "Hertz"];
 
 function binarySearch(arr, value) {
-    let left = 0;
-    let right = arr.length - 1;
-    let middle = Math.floor((right + left) / 2);
+    let start = 0;
+    let end = arr.length - 1;
 
-    while (arr[middle] !== value && left <= right) {
+    let middle = Math.floor((start + end) / 2);
+    // let middle = Math.floor((start + (end - start) / 2));
+
+    while (arr[middle] !== value && start <= end) {
         if (value < arr[middle]) {
-            right = middle - 1;
+            end = middle - 1;
         } else {
-            left = middle + 1;
+            start = middle + 1;
         }
-        middle = Math.floor((right + left) / 2);
+        middle = Math.floor((end + start) / 2);
     }
 
     return arr[middle] === value ? `Found ${value} At Index ${middle}` : -1;
