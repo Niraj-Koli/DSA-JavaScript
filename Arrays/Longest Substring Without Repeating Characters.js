@@ -16,7 +16,9 @@ function longestSubstring(str) {
         }
 
         map.set(str[j], j);
+
         len = Math.max(len, j - i + 1);
+
         j++;
     }
 
